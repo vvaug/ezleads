@@ -8,7 +8,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
-@EnableMongoRepositories(basePackages = "br.com.vvaug.ezlead.repository")
 public class EzleadApplication {
 
 	public static void main(String[] args) {

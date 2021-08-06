@@ -8,13 +8,20 @@ import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import java.util.Collection;
 import java.util.Collections;
 
+@Profile("!dev")
 @Configuration
+/*
+ * https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle/#boot-features-testing-spring-boot-applications-testing-user-configuration
+ */
+@EnableMongoRepositories(basePackages = "br.com.vvaug.ezlead.repository")
 public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Override
