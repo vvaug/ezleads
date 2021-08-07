@@ -64,6 +64,16 @@ public class ProjectControllerUnitTest {
     }
 
     @Test
+    public void find_all() throws Exception {
+        mock.perform(MockMvcRequestBuilders
+                .get(ENDPOINT)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectToJson(request))
+        ).andExpect(status().is(OK.value()));
+    }
+
+    @Test
     public void create_project() throws Exception {
         mock.perform(MockMvcRequestBuilders
                 .post(ENDPOINT)
